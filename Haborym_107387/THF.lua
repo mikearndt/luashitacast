@@ -12,7 +12,8 @@ local sets = {
     Movement = {},
 
     DT = {},
-    MDT = { -- Shell IV provides 23% MDT
+    MDT = {
+        -- Shell IV provides 23% MDT
     },
     FireRes = {},
     IceRes = {},
@@ -25,7 +26,8 @@ local sets = {
     Precast = {},
     SIRD = {
     },
-    Haste = { -- Used for Utsusemi cooldown
+    Haste = {
+        -- Used for Utsusemi cooldown
     },
 
     LockSet1 = {},
@@ -57,7 +59,7 @@ local sets = {
 profile.Sets = sets
 
 profile.SetMacroBook = function()
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 1')
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3')
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1')
 end
 
@@ -143,11 +145,21 @@ profile.OnLoad = function()
         gcdisplay.CreateToggle('TH', false)
     end
     createToggle:once(2)
+
+    -- BIND KEYS
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind \' //bully <t>')
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind ; /ra <t>')
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind [ /fl')
 end
 
 profile.OnUnload = function()
     gcmelee.Unload()
     gcinclude.ClearAlias(T{'th'})
+
+    -- UNBIND KEYS
+    AshitaCore:GetChatManager():QueueCommand(-1, '/unbind \'');
+    AshitaCore:GetChatManager():QueueCommand(-1, '/unbind ;');
+    AshitaCore:GetChatManager():QueueCommand(-1, '/unbind [');
 end
 
 profile.HandleCommand = function(args)
