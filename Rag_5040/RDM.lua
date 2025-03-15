@@ -6,6 +6,7 @@ local ninSJMaxMP = 535 -- The Max MP you have when /nin in your idle set
 local whmSJMaxMP = 613 -- The Max MP you have when /whm in your idle set
 local blmSJMaxMP = 632 -- The Max MP you have when /blm in your idle set
 local drkSJMaxMP = 556 -- The Max MP you have when /drk in your idle set
+-- hi
 
 local blue_cotehardie = false
 local blue_cotehardie_plus_one = true
