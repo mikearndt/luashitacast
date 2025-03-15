@@ -2,10 +2,10 @@ local profile = {}
 
 local fastCastValue = 0.42 -- 20% from traits 22% from gear listed in Precast set
 
-local ninSJMaxMP = 685 -- The Max MP you have when /nin in your idle set
-local whmSJMaxMP = 767 -- The Max MP you have when /whm in your idle set
-local blmSJMaxMP = 782 -- The Max MP you have when /blm in your idle set
-local drkSJMaxMP = nil -- The Max MP you have when /drk in your idle set
+local ninSJMaxMP = 645 -- The Max MP you have when /nin in your idle set
+local whmSJMaxMP = 723 -- The Max MP you have when /whm in your idle set
+local blmSJMaxMP = 742 -- The Max MP you have when /blm in your idle set
+local drkSJMaxMP = 666 -- The Max MP you have when /drk in your idle set
 
 local blue_cotehardie = false
 local blue_cotehardie_plus_one = false
@@ -74,9 +74,9 @@ local sets = {
         Ammo = 'Hedgehog Bomb',
         Head = 'Dls. Chapeau +1',
         Neck = 'Checkered Scarf',
-        -- Ear1 = 'Relaxing Earring',
+        Ear1 = 'Relaxing Earring',
         Ear2 = 'Magnetic Earring',
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         -- Hands = 'Hydra Gloves',
         -- Back = 'Errant Cape',
         Waist = 'Duelist\'s Belt',
@@ -162,10 +162,10 @@ local sets = {
     },
     Casting = {
         -- Default Casting Equipment when using Idle sets
-        -- 28% SIRD
-        Main = 'Terra\'s Staff',
-        -- Main = 'Hermit\'s Wand',        -- 25
-        -- Sub = 'Genbu\'s Shield',
+        -- 53% SIRD
+        -- Main = 'Terra\'s Staff',
+        Main = 'Hermit\'s Wand',        -- 25
+        Sub = 'Genbu\'s Shield',
         -- Head = 'Nashira Turban',        -- 10
         -- Neck = 'Willpower Torque',      -- 5
         Ear1 = 'Merman\'s Earring',
@@ -180,10 +180,10 @@ local sets = {
     },
     SIRD = {
         -- Used on Stoneskin, Blink, Aquaveil and Utsusemi casts
-        -- 28% SIRD
-        Main = 'Terra\'s Staff',
-        -- Main = 'Hermit\'s Wand',        -- 25
-        -- Sub = 'Genbu\'s Shield',
+        -- 53% SIRD
+        -- Main = 'Terra\'s Staff',
+        Main = 'Hermit\'s Wand',        -- 25
+        Sub = 'Genbu\'s Shield',
         -- Head = 'Nashira Turban',        -- 10
         -- Neck = 'Willpower Torque',      -- 5
         Ear1 = 'Merman\'s Earring',
@@ -211,7 +211,9 @@ local sets = {
     },
 
     Hate = {
-        -- Switches to this set when casting Sleep, Blind, Dispel and Bind if /hate is toggled on
+        -- Switches to this set when casting
+        -- Sleep, Blind, Dispel and Bind
+        -- if /hate is toggled on
     },
     Cheat_C3HPDown = {},
     Cheat_C4HPDown = {},
@@ -220,19 +222,19 @@ local sets = {
     Cure = {
         -- -35 enmity
         Ammo = 'Hedgehog Bomb',     -- 1
-        Head = "Raven Beret",       -- 8
+        Head = 'Raven Beret',       -- 8
         -- Neck = 'Benign Necklace',   -- 2
         Neck = 'Promise Badge',
         -- Ear1 = 'Novia Earring',     -- 7
         Ear2 = 'Magnetic Earring',
         Body = 'Raven Jupon',       -- 9
         Hands = 'Raven Bracers',    -- 5
-        Ring1 = 'Solace Ring',
-        Ring2 = 'Solace Ring',
+        Ring1 = 'Aqua Ring',
+        Ring2 = 'Aqua Ring',
         Back = 'Red Cape +1',
         Waist = 'Penitent\'s Rope', -- 3
         Legs = 'Raven Hose',        -- 6
-        Feet = 'Raven Pigaches',    -- 3
+        Feet = 'Mahatma Pigaches',  -- 3
     },
     Cursna = {
         Body = 'Duelist\'s Tabard',
@@ -247,10 +249,10 @@ local sets = {
         Neck = 'Enhancing Torque',
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Magnetic Earring',
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         -- Hands = 'Dusk Gloves',
-        Ring1 = 'Solace Ring',
-        Ring2 = 'Solace Ring',
+        Ring1 = 'Aqua Ring',
+        Ring2 = 'Aqua Ring',
         -- Back = 'Merciful Cape',
         Waist = 'Swift Belt',
         Legs = 'Warlock\'s Tights',
@@ -258,8 +260,6 @@ local sets = {
     },
     Stoneskin = {
         -- Neck = 'Stone Gorget',
-        -- Hands = 'Dusk Gloves',
-        Back = 'Red Cape +1',
     },
     Spikes = {
         Main = 'Ice Staff',
@@ -268,7 +268,7 @@ local sets = {
         Neck = 'Enhancing Torque',
         Ear1 = 'Novio Earring',
         Ear2 = 'Moldavite Earring',
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         -- Hands = 'Dusk Gloves',
         Ring1 = 'Diamond Ring',
         Ring2 = 'Diamond Ring',
@@ -280,7 +280,7 @@ local sets = {
 
     Enfeebling = {
         Head = 'Dls. Chapeau +1',
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         Back = 'Red Cape +1',
         Waist = 'Penitent\'s Rope',
         Legs = 'Mahatma Slops',
@@ -291,8 +291,8 @@ local sets = {
         -- Ear1 = 'Cmn. Earring',
         -- Ear2 = 'Cmn. Earring',
         Hands = 'Devotee\'s Mitts',
-        Ring1 = 'Solace Ring',
-        Ring2 = 'Solace Ring',
+        Ring1 = 'Aqua Ring',
+        Ring2 = 'Aqua Ring',
         Feet = 'Mahatma Pigaches',
     },
     EnfeeblingINT = {
@@ -323,7 +323,7 @@ local sets = {
         -- Neck = 'Dark Torque',
         Ear1 = 'Abyssal Earring',
         Ear2 = 'Morion Earring',
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         -- Body = 'Nashira Manteel',
         -- Hands = 'Blood Fng. Gnt.',
         Ring1 = 'Diamond Ring',
@@ -341,7 +341,7 @@ local sets = {
         Neck = 'Checkered Scarf',
         Ear1 = 'Abyssal Earring',
         Ear2 = 'Moldavite Earring',
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         Hands = 'Zenith Mitts',
         Ring1 = 'Diamond Ring',
         Ring2 = 'Diamond Ring',
@@ -368,7 +368,7 @@ local sets = {
 
     Convert = {
         -- Type /vert to equip this set and /lock your gear at the same time.
-        Main = 'Light Staff',
+        Main = 'Apollo\'s Staff',
         Ammo = 'Hedgehog Bomb',
         Neck = 'Uggalepih Pendant',
         Ear1 = 'Loquac. Earring',
@@ -384,7 +384,7 @@ local sets = {
     },
     ConvertOOR = {
         -- Out of Region Convert Set
-        Main = 'Light Staff',
+        Main = 'Apollo\'s Staff',
         Ammo = 'Hedgehog Bomb',
         Neck = 'Uggalepih Pendant',
         Ear1 = 'Loquac. Earring',

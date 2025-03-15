@@ -6,7 +6,7 @@ local water_staff = ''
 local wind_staff = 'Wind Staff'
 local ice_staff = 'Ice Staff'
 local thunder_staff = 'Thunder Staff'
-local light_staff = 'Light Staff'
+local light_staff = 'Apollo\'s Staff'
 local dark_staff = 'Dark Staff'
 
 -- Set to true if you have the obi
@@ -23,8 +23,8 @@ local anrin_obi = false
 local diabolos_pole = false
 local uggalepih_pendant = true
 local master_casters_bracelets = false
-local dream_boots = false
-local dream_mittens = false
+local dream_boots = true
+local dream_mittens = true
 local skulkers_cape = false
 local wizards_mantle = false
 local republic_gold_medal = false -- Note: Disabled for BRD
@@ -578,8 +578,8 @@ function gcmage.DoMidcast(sets, ninSJMMP, whmSJMMP, blmSJMMP, rdmSJMMP, drkSJMMP
         gcmage.EquipSneakInvisGear()
     end
 
-    -- Check for RDM, Enfeebling Magic, and Potency mode
-    if player.MainJob == 'RDM' and action.Skill == 'Enfeebling Magic' and gcdisplay.GetCycle('Mode') == 'Potency' then
+    -- Check for RDM, MND-based enfeebling spells, and Potency mode
+    if player.MainJob == 'RDM' and action.Skill == 'Enfeebling Magic' and EnfeebMNDSpells:contains(action.Name) and gcdisplay.GetCycle('Mode') == 'Potency' then
         gFunc.Equip('Main', 'Mythic Wand +1')
         gFunc.Equip('Sub', 'Numinous Shield')
     else

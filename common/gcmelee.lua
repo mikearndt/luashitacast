@@ -18,6 +18,7 @@ local lag = false
 local TpVariantTable = {
     [1] = 'LowAcc',
     [2] = 'HighAcc',
+    [3] = 'Eva',
 }
 
 local tp_variant = 1

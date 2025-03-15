@@ -47,11 +47,11 @@ local sets = {
     IdleMaxMP = {},
     Resting = {
         Main = 'Dark Staff',
-        Head = 'Crow Beret',
+        Head = 'Raven Beret',
         Neck = 'Checkered Scarf',
-        -- Ear1 = 'Relaxing Earring',
+        Ear1 = 'Relaxing Earring',
         Ear2 = 'Magnetic Earring',
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         Legs = 'Baron\'s Slops',
     },
     Town = {
@@ -125,15 +125,14 @@ local sets = {
     Precast_Songs = {
         Main = 'Tutelary',          -- 30
         Sub = 'Genbu\'s Shield',    -- 0
-        -- Head = 'Genbu\'s Kabuto',    -- 50
-        Head = 'Bard\'s Roundlet',  -- 13
+        Head = 'Genbu\'s Kabuto',   -- 50
         Neck = 'Shield Pendant',    -- 20
         Ear1 = 'Pigeon Earring',    -- 20
-        Ear2 = 'Loquac. Earring',
-        Body = 'Sha\'ir Manteel',
+        Ear2 = 'Loquac. Earring',   -- 0
+        Body = 'Sha\'ir Manteel',   -- 0
         Hands = 'Seiryu\'s Kote',   -- 50
         Ring1 = 'Bomb Queen Ring',  -- 45
-        Ring2 = 'Minstrel\'s Ring',
+        Ring2 = 'Minstrel\'s Ring', -- 0
         Back = 'Gigant Mantle',     -- 80
         Waist = 'Koenigs Belt',     -- 20
         Legs = 'Sha\'ir Saraweels', -- 20
@@ -152,7 +151,6 @@ local sets = {
         Ring1 = 'Sattva Ring',
         Ring2 = 'Merman\'s Ring',
         Back = 'Umbra Cape',
-        -- Waist = 'Powerful Rope',
         Legs = 'Dst. Subligar +1',
         Feet = 'Dst. Leggings +1',
     },
@@ -184,14 +182,14 @@ local sets = {
         Ear2 = 'Musical Earring',
         Hands = 'Chl. Cuffs +1',
         Legs = 'Chl. Cannions +1',
-        -- Back = 'Astute Cape',
+        Back = 'Astute Cape',
     },
     Sing_Buff = {
         Main = 'Chanter\'s Staff',
         Body = 'Minstrel\'s Coat',
     },
     Sing_Debuff = {
-        Body = 'Errant Hpl.',
+        Body = 'Mahatma Hpl.',
         Ring1 = 'Angel\'s Ring',
         Ring2 = 'Angel\'s Ring',
         Back = 'Jester\'s Cape +1',
@@ -230,32 +228,35 @@ local sets = {
         Main = 'Terra\'s Staff',
     },
     Sing_Lullaby = {
-        -- Range = 'Nursemaid\'s Harp',
-        Range = 'Mary\'s Horn',
-        Main = 'Light Staff',
+        Range = 'Nursemaid\'s Harp',
+        Main = 'Apollo\'s Staff',
+        Ear1 = 'String Earring',
+        Neck = 'String Torque',
         Legs = 'Mahatma Slops',
     },
     Sing_HordeLullaby_Large = {
-        -- Range = 'Nursemaid\'s Harp',
-        Range = 'Mary\'s Horn',
-        Main = 'Light Staff',
-        -- Ear1 = 'String Earring',
-        -- Neck = 'String Torque',
+        Range = 'Nursemaid\'s Harp',
+        Main = 'Apollo\'s Staff',
+        Ear1 = 'String Earring',
+        Neck = 'String Torque',
         Legs = 'Mahatma Slops',
     },
     Sing_HordeLullaby_Small = {
-        Range = 'Mary\'s Horn',
-        Main = 'Light Staff',
-        -- Ear1 = 'String Earring',
-        -- Neck = 'String Torque',
+        Range = 'Nursemaid\'s Harp',
+        Main = 'Apollo\'s Staff',
+        Ear1 = 'String Earring',
+        Neck = 'String Torque',
         Legs = 'Mahatma Slops',
     },
     Sing_SleepRecast = {
+        Ear1 = 'Loquac. Earring',
         Hands = 'Sheikh Gages',
+        Waist = 'Swift Belt',
+        Feet = 'Rostrum Pumps',
     },
     Sing_FinaleRequiem = {
         Range = 'Hamelin Flute',
-        Main = 'Light Staff',
+        Main = 'Apollo\'s Staff',
     },
     Sing_Carol = {
         Range = 'Crumhorn +1',
@@ -277,15 +278,16 @@ local sets = {
     },
 
     Cure = {
-        Main = 'Light Staff',
+        Main = 'Apollo\'s Staff',
         Ammo = 'Hedgehog Bomb', 
         Head = 'Raven Beret',
         Neck = 'Justice Badge',
+        Ear1 = 'Loquac. Earring',
         Ear2 = 'Magnetic Earring',
         Body = 'Raven Jupon',
         Hands = 'Raven Bracers',
-        Ring1 = 'Solace Ring',
-        Ring2 = 'Solace Ring',
+        Ring1 = 'Aqua Ring',
+        Ring2 = 'Aqua Ring',
         Back = 'Red Cape +1',
         Waist = 'Penitent\'s Rope',
         Legs = 'Raven Hose',
@@ -297,33 +299,39 @@ local sets = {
         Ear2 = 'Magnetic Earring',
     },
     Stoneskin = {
+        -- 145 needed to cap. +67 MND from gear.
         Range = 'Angel Lyre',
-        Main = 'Chanter\'s Staff',
+        Main = 'Chanter\'s Staff',   -- 6
         Head = 'Raven Beret',
         -- Neck = 'Stone Gorget',
-        Neck = 'Justice Badge',
+        Neck = 'Justice Badge',      -- 5
         -- Ear1 = 'Geist Earring',
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Magnetic Earring',
-        Body = 'Errant Hpl.',
-        Hands = 'Devotee\'s Mitts',
-        Ring1 = 'Solace Ring',
-        Ring2 = 'Solace Ring',
-        Back = 'Red Cape +1',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Mahatma Slops',
-        -- Feet = 'Suzaku\'s Sune-ate',
-        Feet = 'Mahatma Pigaches',
+        Body = 'Mahatma Hpl.',        -- 10
+        Hands = 'Devotee\'s Mitts',  -- 5
+        Ring1 = 'Aqua Ring',         -- 5
+        Ring2 = 'Aqua Ring',         -- 5
+        Back = 'Red Cape +1',        -- 3
+        Waist = 'Penitent\'s Rope',  -- 5
+        Legs = 'Mahatma Slops',      -- 8
+        Feet = 'Suzaku\'s Sune-ate', -- 15
     },
     Spikes = {},
 
     Enfeebling = {
         Neck = 'Enfeebling Torque',
+    },
+    EnfeeblingMND = {
+        Body = 'Mahatma Hpl.',
+        Hands = 'Devotee\'s Mitts',
+        Ring1 = 'Aqua Ring',
+        Ring2 = 'Aqua Ring',
         Back = 'Red Cape +1',
         Waist = 'Penitent\'s Rope',
         Legs = 'Mahatma Slops',
+        Feet = 'Suzaku\'s Sune-ate',
     },
-    EnfeeblingMND = {},
     EnfeeblingINT = {},
     EnfeeblingACC = {},
 
@@ -378,27 +386,30 @@ profile.HandleWeaponskill = function()
     gcmage.DoFenrirsEarring()
 end
 
-local songModes = {'March x2', 'Minuet x2', 'Madrigal x2', 'March & Minuet', 'March & Madrigal'}
+local songModes = {'March x2', 'Minuet x2', 'Madrigal x2', 'March & Minuet', 'March & Madrigal', 'Minuet & Madrigal'}
 local currentSongMode = 1
 
 local function setSongs()
     local mode = songModes[currentSongMode]
 
     if mode == 'March x2' then
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Advancing March" <me>')
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Victory March" <t>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Victory March" <me>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Advancing March" <me>')
     elseif mode == 'Minuet x2' then
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Valor Minuet IV" <t>')
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Valor Minuet III" <t>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Valor Minuet IV" <me>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Valor Minuet III" <me>')
     elseif mode == 'Madrigal x2' then
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Blade Madrigal" <t>')
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Sword Madrigal" <t>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Blade Madrigal" <me>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Sword Madrigal" <me>')
     elseif mode == 'March & Minuet' then
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Valor Minuet IV" <t>')
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Victory March" <t>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Valor Minuet IV" <me>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Victory March" <me>')
     elseif mode == 'March & Madrigal' then
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Sword Madrigal" <t>')
-        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Victory March" <t>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Sword Madrigal" <me>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Victory March" <me>')
+    elseif mode == 'Minuet & Madrigal' then
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 1 /ma "Valor Minuet IV" <me>')
+        AshitaCore:GetChatManager():QueueCommand(1, '/bind 2 /ma "Blade Madrigal" <me>')
     end
     AshitaCore:GetChatManager():AddChatMessage(6, false, string.format('\31\100Songs: %s', mode))
 end
@@ -411,7 +422,7 @@ profile.OnLoad = function()
     local function createToggle()
         gcdisplay.CreateToggle('SmallBallad', false)
         gcdisplay.CreateToggle('SmallHorde', false)
-        gcdisplay.CreateToggle('SleepRecast', false)
+        gcdisplay.CreateToggle('SleepRecast', true)
     end
     createToggle:once(2)
     setSongs()

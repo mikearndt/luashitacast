@@ -1,19 +1,64 @@
 local profile = {}
 
-local fastCastValue = 0.00 -- 0% from gear
+local fastCastValue = 0.07 -- 7% from gear
 
-local ta_rogue_armlets = true
+local ta_rogue_armlets = false
 
 local sets = {
-    Idle = {},
-    IdleALT = {},
-    Resting = {},
-    Town = {},
+    Idle = {
+        Head = 'Optical Hat',
+        Neck = 'Evasion Torque',
+        Ear1 = 'Merman\'s Earring',
+        Ear2 = 'Merman\'s Earring',
+        Body = 'Scp. Harness +1',
+        Hands = 'War Gloves +1',
+        Ring1 = 'Sattva Ring',
+        Ring2 = 'Jelly Ring',
+        Back = 'Boxer\'s Mantle',
+        Legs = 'Raven Hose',
+        Waist = 'Scouter\'s Rope',
+        Feet = 'Dance Shoes',
+    },
+    IdleALT = {
+        Head = 'Darksteel Cap +1',
+        Neck = 'Evasion Torque',
+        Ear1 = 'Merman\'s Earring',
+        Ear2 = 'Merman\'s Earring',
+        Body = 'Dst. Harness +1',
+        Hands = 'Dst. Mittens +1',
+        Ring1 = 'Sattva Ring',
+        Ring2 = 'Jelly Ring',
+        Waist = 'Scouter\'s Rope',
+        Legs = 'Dst. Subligar +1',
+        Feet = 'Dst. Leggings +1',
+    },
+    Resting = {
+        Neck = 'Checkered Scarf',
+    },
+    Town = {
+        Head = 'Rabbit Cap',
+        Neck = 'Jeweled Collar',
+    },
     Movement = {},
 
-    DT = {},
+    DT = {
+        -- 23% PDT
+        Head = 'Darksteel Cap +1',  -- 2
+        Body = 'Dst. Harness +1',   -- 4
+        Hands = 'Dst. Mittens +1',  -- 2
+        Ring1 = 'Sattva Ring',      -- 5
+        Ring2 = 'Jelly Ring',       -- 5
+        Legs = 'Dst. Subligar +1',  -- 3
+        Feet = 'Dst. Leggings +1',  -- 2
+    },
     MDT = {
-        -- Shell IV provides 23% MDT
+        -- 40% MDT
+        -- Shell IV provides 23% MDT, 17% from gear
+        Neck = 'Jeweled Collar',
+        Ear1 = 'Merman\'s Earring', -- 2
+        Ear2 = 'Merman\'s Earring', -- 2
+        Ring1 = 'Sattva Ring',      -- 5
+        Ring2 = 'Merman\'s Ring',   -- 4
     },
     FireRes = {},
     IceRes = {},
@@ -21,40 +66,210 @@ local sets = {
     EarthRes = {},
     WindRes = {},
     WaterRes = {},
-    Evasion = {},
 
-    Precast = {},
+    Evasion = {
+        Head = 'Optical Hat',
+        Neck = 'Evasion Torque',
+        Ear1 = 'Drone Earring',
+        Ear2 = 'Musical Earring',
+        Body = 'Scp. Harness +1',
+        Hands = 'War Gloves +1',
+        Ring1 = 'Sattva Ring',
+        Back = 'Boxer\'s Mantle',
+        Waist = 'Scouter\'s Rope',
+        Legs = 'Raven Hose',
+        Feet = 'Dance Shoes',
+    },
+
+    Precast = {
+        Ear1 = 'Loquac. Earring',   -- 2
+        Legs = 'Homam Cosciales',   -- 5
+    },
     SIRD = {
     },
     Haste = {
         -- Used for Utsusemi cooldown
+        Head = 'Panther Mask',
+        Ear1 = 'Loquac. Earring',
+        Body = 'Rapparee Harness',
+        Hands = 'Homam Manopolas',
+        Waist = 'Swift Belt',
+        Legs = 'Homam Cosciales',
+        Feet = 'Homam Gambieras',
     },
 
     LockSet1 = {},
     LockSet2 = {},
     LockSet3 = {},
 
-    TP_LowAcc = {},
-    TP_HighAcc = {},
+    TP_LowAcc = {
+        Head = 'Panther Mask',
+        Neck = 'Love Torque',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Stealth Earring',
+        Body = 'Rapparee Harness',
+        Hands = 'Homam Manopolas',
+        Ring1 = 'Toreador\'s Ring',
+        Ring2 = 'Toreador\'s Ring',
+        Back = 'Forager\'s Mantle',
+        Waist = 'Swift Belt',
+        Legs = 'Homam Cosciales',
+        Feet = 'Homam Gambieras',
+    },
+    TP_HighAcc = {
+        Head = 'Optical Hat',
+        Neck = 'Love Torque',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Stealth Earring',
+        Body = 'Rapparee Harness',
+        Hands = 'Homam Manopolas',
+        Ring1 = 'Toreador\'s Ring',
+        Ring2 = 'Toreador\'s Ring',
+        Back = 'Forager\'s Mantle',
+        Waist = 'Tilt Belt',
+        Legs = 'Homam Cosciales',
+        Feet = 'Homam Gambieras',
+    },
+    TP_Eva = {
+        Head = 'Optical Hat',
+        Neck = 'Evasion Torque',
+        Ear1 = 'Musical Earring',
+        -- Ear1 = 'Brutal Earring',
+        Ear2 = 'Stealth Earring',
+        Body = 'Scp. Harness +1',
+        Hands = 'War Gloves +1',
+        Ring1 = 'Toreador\'s Ring',
+        Ring2 = 'Toreador\'s Ring',
+        Back = 'Boxer\'s Mantle',
+        Waist = 'Scouter\'s Rope',
+        Legs = 'Raven Hose',
+        Feet = 'Dance Shoes',
+    },
     TP_NIN = {},
 
-    WS = {},
-    WS_Evisceration = {},
+    WS = {
+        Head = 'Emperor Hairpin',
+        Neck = 'Love Torque',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Merman\'s Earring',
+        Body = 'Dargon Harness',
+        Hands = 'War Gloves +1',
+        Ring1 = 'Spinel Ring',
+        Ring2 = 'Spinel Ring',
+        Back = 'Forager\'s Mantle',
+        Waist = 'R.K. Belt +1',
+        Legs = 'Republic Subligar',
+        Feet = 'Bounding Boots',
+    },
+    WS_Evisceration = {
+        Head = 'Emperor Hairpin',
+        Neck = 'Love Torque',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Pixie Earring',
+        Body = 'Dargon Harness',
+        Hands = 'War Gloves +1',
+        Ring1 = 'Spinel Ring',
+        Ring2 = 'Spinel Ring',
+        -- Ring1 = 'Toreador\'s Ring',
+        -- Ring2 = 'Toreador\'s Ring',
+        Back = 'Forager\'s Mantle',
+        Waist = 'Life Belt',
+        -- Waist = 'R.K. Belt +1',
+        Legs = 'Homam Cosciales',
+        -- Legs = 'Republic Subligar',
+        Feet = 'Bounding Boots',
+    },
     WS_SharkBite = {},
 
-    SA = {},
-    TA = {},
-    SATA = {},
+    SA = {
+        -- DEX
+        Head = 'Emperor Hairpin',
+        Neck = 'Love Torque',
+        Ear1 = 'Merman\'s Earring',
+        Ear2 = 'Pixie Earring',
+        Body = 'Dargon Harness',
+        Hands = 'San. Gloves',
+        Ring1 = 'Spinel Ring',
+        Ring2 = 'Spinel Ring',
+        Back = 'Assassin\'s Cape',
+        Waist = 'R.K. Belt +1',
+        Legs = 'Republic Subligar',
+        Feet = 'Bounding Boots',  
+    },
+    TA = {
+        -- AGI
+        Head = 'Emperor Hairpin',
+        Neck = 'Love Torque',
+        Ear1 = 'Drone Earring',
+        Ear2 = 'Drone Earring',
+        Body = 'Dargon Harness',
+        Hands = 'San. Gloves',
+        Ring1 = 'Sattva Ring',
+        Ring2 = 'Emerald Ring',
+        Back = 'Assassin\'s Cape',
+        Waist = 'R.K. Belt +1',
+        Legs = 'Republic Subligar',
+        Feet = 'Bounding Boots',
+    },
+    SATA = {
+        Head = 'Emperor Hairpin',
+        Neck = 'Love Torque',
+        Ear1 = 'Drone Earring',
+        Ear2 = 'Pixie Earring',
+        Body = 'Dargon Harness',
+        Hands = 'San. Gloves',
+        Ring1 = 'Sattva Ring',
+        Ring2 = 'Spinel Ring',
+        Back = 'Assassin\'s Cape',
+        Waist = 'R.K. Belt +1',
+        Legs = 'Republic Subligar',
+        Feet = 'Bounding Boots',
+    },
 
-    Flee = {},
+    Flee = {
+        Feet = 'Rogue\'s Poulaines',
+    },
     Hide = {},
-    Steal = {},
-    Mug = {},
+    Steal = {
+        Head = 'Rogue\'s Bonnet',
+        Hands = 'Thief\'s Kote',
+        Feet = 'Rogue\'s Poulaines',
+    },
+    Mug = {
+        Head = 'Rogue\'s Bonnet',
+        Feet = 'Rogue\'s Poulaines',
+    },
 
-    TH = {},
+    TH = {
+        Neck = 'Nanaa\'s Charm',
+        Hands = 'Assassin\'s Armlets',
+    },
 
-    Ranged = {},
-    Ranged_INT = {},
+    Ranged = {
+        Head = 'Optical Hat',
+        Ear1 = 'Drone Earring',
+        Ear2 = 'Drone Earring',
+        Body = 'Rapparee Harness',
+        Ring1 = 'Coral Ring',
+        Ring2 = 'Merman\'s Ring',
+        Back = 'Forager\'s Mantle',
+        Waist = 'R.K. Belt +1',
+        Legs = 'Republic Subligar',
+        Feet = 'Homam Gambieras',
+    },
+    Ranged_INT = {
+        Head = 'Optical Hat',
+        Neck = 'Checkered Scarf',
+        Ear1 = 'Abyssal Earring',
+        Ear2 = 'Morion Earring',
+        Body = 'Rapparee Harness',
+        Ring1 = 'Diamond Ring',
+        Ring2 = 'Diamond Ring',
+        Back = 'Forager\'s Mantle',
+        Waist = 'R.K. Belt +1',
+        Legs = 'Republic Subligar',
+        Feet = 'Homam Gambieras',
+    },
 }
 profile.Sets = sets
 
@@ -149,7 +364,12 @@ profile.OnLoad = function()
     -- BIND KEYS
     AshitaCore:GetChatManager():QueueCommand(-1, '/bind \' //bully <t>')
     AshitaCore:GetChatManager():QueueCommand(-1, '/bind ; /ra <t>')
-    AshitaCore:GetChatManager():QueueCommand(-1, '/bind [ /fl')
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind [ /fl;/sl blink')
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind l /th')
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind 1 /equip ammo "Acid Bolt";/echo > Acid Bolts')
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind 2 /equip ammo "Bloody Bolt";/echo > Bloody Bolts')
+    AshitaCore:GetChatManager():QueueCommand(-1, '/bind 3 /equip ammo "Sleep Bolt";/echo > Sleep Bolts')
+    
 end
 
 profile.OnUnload = function()
@@ -160,6 +380,10 @@ profile.OnUnload = function()
     AshitaCore:GetChatManager():QueueCommand(-1, '/unbind \'');
     AshitaCore:GetChatManager():QueueCommand(-1, '/unbind ;');
     AshitaCore:GetChatManager():QueueCommand(-1, '/unbind [');
+    AshitaCore:GetChatManager():QueueCommand(-1, '/unbind l');
+    AshitaCore:GetChatManager():QueueCommand(-1, '/unbind 1');
+    AshitaCore:GetChatManager():QueueCommand(-1, '/unbind 2');
+    AshitaCore:GetChatManager():QueueCommand(-1, '/unbind 3');
 end
 
 profile.HandleCommand = function(args)
@@ -172,6 +396,14 @@ profile.HandleCommand = function(args)
 
     if (args[1] == 'horizonmode') then
         profile.HandleDefault()
+    end
+
+     -- Add bolt type display when using number keys
+     if (args[1] == 'bolt') then
+        local boltType = args[2]
+        if boltType then
+            gcinclude.Message('Bolt Type', string.ucfirst(boltType))
+        end
     end
 end
 

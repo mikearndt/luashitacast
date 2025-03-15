@@ -5,8 +5,8 @@ local republic_aketon = true
 local federation_aketon = true
 local ducal_aketon = false
 
-local dream_boots = false
-local dream_mittens = false
+local dream_boots = true
+local dream_mittens = true
 local skulkers_cape = false
 
 local load_stylist = true -- set to true to just load stylist on game start. this is purely for convenience since putting it in scripts doesn't work.
@@ -14,10 +14,10 @@ local load_stylist = true -- set to true to just load stylist on game start. thi
 -- Add additional equipment here that you want to automatically lock when equipping
 local LockableEquipment = {
     ['Main'] = T{'Warp Cudgel', 'Rep. Signet Staff', 'Kgd. Signet Staff', 'Fed. Signet Staff', 'Treat Staff II', 'Trick Staff II'},
-    ['Sub'] = T{},
+    ['Sub'] = T{'Warp Cudgel'},
     ['Range'] = T{},
     ['Ammo'] = T{},
-    ['Head'] = T{'Reraise Hairpin', 'Dream Hat +1'},
+    ['Head'] = T{'Reraise Hairpin', 'Dream Hat +1', 'Snowman Cap'},
     ['Neck'] = T{'Opo-opo Necklace'},
     ['Ear1'] = T{'Reraise Earring'},
     ['Ear2'] = T{'Reraise Earring'},
@@ -251,7 +251,10 @@ function gcinclude.RunWarpCudgel()
     AshitaCore:GetChatManager():QueueCommand(-1, '/equip main "Warp Cudgel"')
     local function usecudgel()
         AshitaCore:GetChatManager():QueueCommand(-1, '/item "Warp Cudgel" <me>')
-        AshitaCore:GetChatManager():QueueCommand(-1, '/goodbye')
+        local function goodbye()
+            AshitaCore:GetChatManager():QueueCommand(-1, '/goodbye')
+        end
+        goodbye:once(25)
     end
     usecudgel:once(31)
 end

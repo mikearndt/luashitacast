@@ -2,20 +2,66 @@ local profile = {}
 
 local fastCastValue = 0.00 -- 0% from gear
 
-local gaudy_harness = true
+local gaudy_harness = false
 
 -- Replace these with '' if you do not have them
-local muscle_belt = 'Muscle Belt +1'
+local muscle_belt = ''
+-- local muscle_belt = 'Muscle Belt +1'
 
 local sets = {
-    Idle = {},
-    IdleALT = {},
-    Resting = {},
+    Idle = {
+        Head = 'Optical Hat',
+        -- Head = 'Emperor Hairpin',
+        Ear1 = 'Merman\'s Earring',
+        Ear2 = 'Merman\'s Earring',
+        Body = 'Scp. Harness +1',
+        Hands = 'Raven Bracers',
+        Ring1 = 'Sattva Ring',
+        Legs = 'Raven Hose',
+    },
+    IdleALT = {
+        Head = 'Optical Hat',
+        -- Head = 'Emperor Hairpin',
+        Ear1 = 'Merman\'s Earring',
+        Ear2 = 'Merman\'s Earring',
+        Body = 'Scp. Harness +1',
+        Hands = 'Raven Bracers',
+        Ring1 = 'Sattva Ring',
+        Legs = 'Raven Hose',
+    },
+    Resting = {
+        Head = 'Darksteel Cap +1',
+        Ear1 = 'Merman\'s Earring',
+        Ear2 = 'Merman\'s Earring',
+        Neck = 'Checkered Scarf',
+        Body = 'Dst. Harness +1',
+        Hands = 'Dst. Mittens +1',
+        Ring1 = 'Sattva Ring',
+        Ring2 = 'Jelly Ring',
+        Legs = 'Dst. Subligar +1',
+        Feet = 'Dst. Leggings +1',
+    },
     Town = {},
     Movement = {},
 
-    DT = {},
-    MDT = { -- Shell IV provides 23% MDT
+    DT = {
+        -- 23% PDT
+        Head = 'Darksteel Cap +1',  -- 2
+        Body = 'Dst. Harness +1',   -- 4
+        Hands = 'Dst. Mittens +1',  -- 2
+        Ring1 = 'Sattva Ring',      -- 5
+        Ring2 = 'Jelly Ring',       -- 5
+        Legs = 'Dst. Subligar +1',  -- 3
+        Feet = 'Dst. Leggings +1',  -- 2
+    },
+    MDT = {
+        -- 40% MDT
+        -- Shell IV provides 23% MDT, 13/% from gear
+        Neck = 'Jeweled Collar',
+        Ear1 = 'Merman\'s Earring', -- 2
+        Ear2 = 'Merman\'s Earring', -- 2
+        Ring1 = 'Sattva Ring',      -- 5
+        Ring2 = 'Merman\'s Ring',   -- 4
     },
     FireRes = {},
     IceRes = {},
@@ -23,26 +69,67 @@ local sets = {
     EarthRes = {},
     WindRes = {},
     WaterRes = {},
-    Evasion = {},
+    Evasion = {
+        Head = 'Optical Hat',
+        Body = 'Scp. Harness +1',
+        Hands = 'Raven Bracers',
+        Legs = 'Raven Hose',
+    },
 
     Precast = {},
     SIRD = {
     },
     Haste = { -- Used for Utsusemi cooldown
+    Head = 'Panther Mask',
+        Waist = 'Swift Belt',
     },
 
     LockSet1 = {},
     LockSet2 = {},
     LockSet3 = {},
 
-    TP_LowAcc = {},
+    TP_LowAcc = {
+        Ammo = 'Tiphia Sting',
+        Head = 'Panther Mask',
+        Neck = 'Ryl.Grd. Collar',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Stealth Earring',
+        Body = 'Scp. Harness +1',
+        Hands = 'Battle Gloves',
+        Ring1 = 'Sniper\'s Ring',
+        Ring2 = 'Sniper\'s Ring',
+        Waist = 'Swift Belt',
+        Legs = 'Republic Subligar',
+        Feet = 'Bounding Boots',
+    },
     TP_HighAcc = {},
     TP_NIN = {},
 
-    WS = {},
+    WS = {
+        Ammo = 'Tiphia Sting',
+        Head = 'Optical Hat',
+        Neck = 'Spike Necklace',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Merman\'s Earring',
+        Body = 'Scp. Harness +1',
+        Hands = 'Enkelado\'s Brc.',
+        Ring1 = 'Puissance Ring',
+        Ring2 = 'Puissance Ring',
+        Waist = 'Life Belt',
+        Legs = 'Republic Subligar',
+        Feet = 'Savage Gaiters',
+    },
 
     Charm = {},
-    Reward = {},
+    Reward = {
+        -- 220 MND Cap
+        Neck = 'Promise Badge',
+        Body = 'Beast Jackcoat',
+        Hands = 'Savage Gauntlets',
+        Ring1 = 'Vilma\'s Ring',
+        Legs = 'Savage Loincloth',
+        Feet = 'Beast Gaiters',
+    },
     Ready_Physical = {},
     Ready_Magic = {},
     Call_Beast = {},
@@ -50,8 +137,8 @@ local sets = {
 profile.Sets = sets
 
 profile.SetMacroBook = function()
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 1')
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 6')
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 6')
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1')
 end
 
 --[[
